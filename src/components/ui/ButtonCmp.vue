@@ -24,13 +24,11 @@ export default {
     },
 
     setup( props: any, { emit }: any ) {
-        
         const btnNameText = ref( props.btnName )
         const buttonSize = ref( btnNameText.value.split('').length )
         const loading = ref( props.loading )
         
         const load = (): void => {
-            
             emit( 'click-handler' )
             btnNameText.value = ''
             loading.value = true  

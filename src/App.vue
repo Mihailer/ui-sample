@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex; 
     justify-content: space-between; 
-    align-items: center; 
+    align-items: flex-start; 
     height: 100px; 
     width: auto;">
       <input-cmp dropMargin="drop"
@@ -9,15 +9,21 @@
       <button-cmp btnName="Кнопка"
         :loading="false"
         @click-handler="clickHandler" />
+
+        <select-cmp selectName="Выбрать вариант" 
+          :selectFieldItem="selectFieldItem" />
   </div>
 </template>
 
 <script lang="ts">
+import { ref } from 'vue'
+import SelectCmp from './components/ui/SelectCmp.vue';
 import InputCmp from './components/ui/InputCmp.vue';
 import ButtonCmp from './components/ui/ButtonCmp.vue';
 
   export default {
     components: {
+      SelectCmp,
       ButtonCmp,
       InputCmp
     },
@@ -31,9 +37,17 @@ import ButtonCmp from './components/ui/ButtonCmp.vue';
         console.log( 'clickHandler');
       }
 
+      const selectFieldItem = ref([
+        'Вариант 1',
+        'Вариант 2',
+        'Вариант 3',
+        'Вариант 4'
+      ])
+
       return {
         inputHandler,
-        clickHandler
+        clickHandler,
+        selectFieldItem
       }
     }
   }
