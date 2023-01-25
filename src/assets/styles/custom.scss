@@ -23,9 +23,11 @@
 // ---------------------------------- VARS
 
 // ---------------------------------- VARS
+$main-white: #fdfdfd;
 $main-color: #275179;
 $main-hover: rgba(46, 115, 179, 0.5);
 $main-border: 2px solid $main-color;
+$main-border-tr: 2px solid transparent;
 $main-border-radius: 4px;
 $main-shadow: 0px 0px 6px 1px $main-hover;
 
@@ -61,17 +63,27 @@ $main-shadow: 0px 0px 6px 1px $main-hover;
 
     &:hover {
         background-color: $main-hover;
-        color: white;
+        color: $main-white;
 
         &::placeholder {
-            color: white;
+            color: $main-white;
         } 
     }
 
     &:focus {
         background-color: $main-hover;
         color: $main-color;
-        background-color: white;
+        background-color: $main-white;
     }
 }
+
+.active-tab {
+    height: 34px;
+    padding: 5px;
+    background-color: $main-hover;
+    border: none;
+    border: $main-border;
+    outline: none;
+    color: $main-white;
+  }
 // ---------------------------------- CLASS

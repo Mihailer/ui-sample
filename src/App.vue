@@ -4,15 +4,28 @@
     align-items: flex-start; 
     height: 100px; 
     width: auto;">
+
+    <div style="display: flex; 
+      justify-content: space-between; 
+      align-items: flex-start; 
+      width: auto;" >
+      <nav-cmp :tabs="{ 
+        '1': 'Сервис',
+        '2': 'Склад',
+        '3': 'Аналитика',}" />
+    </div>
+
       <input-cmp dropMargin="drop"
         @input-handler="inputHandler" />
       <button-cmp btnName="Кнопка"
         :loading="false"
         @click-handler="clickHandler" />
 
-        <select-cmp selectName="Выбрать вариант" 
+        <select-cmp selectName="Выбрать вариант который нравится" 
           :selectFieldItem="selectFieldItem" />
   </div>
+
+  
 </template>
 
 <script lang="ts">
@@ -20,12 +33,14 @@ import { ref } from 'vue'
 import SelectCmp from './components/ui/SelectCmp.vue';
 import InputCmp from './components/ui/InputCmp.vue';
 import ButtonCmp from './components/ui/ButtonCmp.vue';
+import NavCmp from './components/controls/NavCmp.vue';
 
   export default {
     components: {
       SelectCmp,
       ButtonCmp,
-      InputCmp
+      InputCmp,
+      NavCmp
     },
 
     setup() {
@@ -65,6 +80,7 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   // font-family: Avenir, Helvetica, Arial, sans-serif;
