@@ -58,12 +58,14 @@ export default {
 .button-cmp {
     @include flexRow( center, center );
     @include font( 13px, normal );
-    height: 30px;
+    height: 34px;
+    margin: 0px 5px;
     width: calc( 10px * v-bind( buttonSize ) );
     border: $main-border;
     border-radius: $main-border-radius;
     outline: none;
     color: $main-color;
+    box-shadow: $main-shadow;
 
     &:hover {
         background-color: $main-hover;

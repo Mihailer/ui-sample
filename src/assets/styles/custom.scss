@@ -27,17 +27,51 @@ $main-color: #275179;
 $main-hover: rgba(46, 115, 179, 0.5);
 $main-border: 2px solid $main-color;
 $main-border-radius: 4px;
+$main-shadow: 0px 0px 6px 1px $main-hover;
 
 // ---------------------------------- CLASS
 .load-class {
     @include flexRow( center, center );
     @include font( 13px, normal );
-    height: 30px;
+    height: 34px;
+    margin: 0px 5px;
     width: calc( 10px * v-bind( buttonSize ) );
     border: $main-border;
     border-radius: $main-border-radius;
     outline: none;
     color: $main-color;
     background-color: $main-hover;
+    box-shadow: $main-shadow;
+}
+
+.drop-margin {
+    @include font( 13px, normal );
+    height: 30px;
+    padding: 0px 10px;
+    margin: 0px 0px;
+    border: $main-border;
+    border-radius: $main-border-radius;
+    outline: none;
+    color: $main-color;
+    box-shadow: $main-shadow;
+
+    &::placeholder {
+        color: $main-color;
+    }
+
+    &:hover {
+        background-color: $main-hover;
+        color: white;
+
+        &::placeholder {
+            color: white;
+        } 
+    }
+
+    &:focus {
+        background-color: $main-hover;
+        color: $main-color;
+        background-color: white;
+    }
 }
 // ---------------------------------- CLASS

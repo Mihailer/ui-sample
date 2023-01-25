@@ -10,14 +10,7 @@
 </template>
 
 <script lang="ts">
-    export default {
-        setup() {
-
-            return {
-
-            }
-        }
-    }
+    export default {}
 </script>
 
 <style lang="scss" scoped>

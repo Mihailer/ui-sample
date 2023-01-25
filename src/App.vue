@@ -1,25 +1,38 @@
 <template>
-  <div>
-    <button-cmp btnName="Найти заказ"
-      :loading="false"
-      @click-handler="clickHandler" />
+  <div style="display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 100px; 
+    width: auto;">
+      <input-cmp dropMargin="drop"
+        @input-handler="inputHandler" />
+      <button-cmp btnName="Кнопка"
+        :loading="false"
+        @click-handler="clickHandler" />
   </div>
 </template>
 
 <script lang="ts">
+import InputCmp from './components/ui/InputCmp.vue';
 import ButtonCmp from './components/ui/ButtonCmp.vue';
 
   export default {
     components: {
-      ButtonCmp
+      ButtonCmp,
+      InputCmp
     },
 
     setup() {
+      const inputHandler = ( text: string ): void => {
+        console.log( 'inputHandler : ' + `${ text }` );
+      }
+
       const clickHandler = (): void => {
         console.log( 'clickHandler');
       }
 
       return {
+        inputHandler,
         clickHandler
       }
     }
