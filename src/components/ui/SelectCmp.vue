@@ -23,7 +23,7 @@ import { ref, computed } from 'vue'
             selectFieldItem: { type: Array, default: () => { return [] } }
         },
 
-        setup( props ) {
+        setup( props: any ) {
             const selectSize = computed( () => props.selectName.split('').length )
             const selectField = ref( false )
             const currentSelectName = ref( props.selectName )
@@ -63,11 +63,12 @@ import { ref, computed } from 'vue'
     min-width: 100px;
     width: calc( 10px * v-bind( selectSize ));
     padding: 0px 10px;
-    margin: 0px 10px;
+    margin: 0px 4px;
     border: $main-border;
     border-radius: $main-border-radius;
     outline: none;
     color: $main-color;
+    background-color: $main-white;
     box-shadow: $main-shadow;
 
     &::placeholder {
@@ -76,17 +77,17 @@ import { ref, computed } from 'vue'
 
     &:hover {
         background-color: $main-hover;
-        color: white;
+        color: $main-white;
 
         &::placeholder {
-            color: white;
+            color: $main-white;
         } 
     }
 
     &:focus {
         background-color: $main-hover;
         color: $main-color;
-        background-color: white;
+        background-color: $main-white;
     }
 
     &-options {
@@ -96,11 +97,12 @@ import { ref, computed } from 'vue'
         min-width: 120px;
         width: calc( 10px * v-bind( selectSize ) + 20px );
         padding: 0px 0px;
-        margin: 2px 10px;
+        margin: 2px 4px;
         border: $main-border;
         border-radius: $main-border-radius;
         outline: none;
         color: $main-color;
+        background-color: $main-white;
         box-shadow: $main-shadow;
 
         &-field {
@@ -122,17 +124,17 @@ import { ref, computed } from 'vue'
 
             &:hover {
                 background-color: $main-hover;
-                color: white;
+                color: $main-white;
 
                 &::placeholder {
-                    color: white;
+                    color: $main-white;
                 } 
             }
 
             &:focus {
                 background-color: $main-hover;
                 color: $main-color;
-                background-color: white;
+                background-color: $main-white;
             }
         }
     }

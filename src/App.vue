@@ -9,20 +9,30 @@
       justify-content: space-between; 
       align-items: flex-start; 
       width: auto;" >
-      <nav-cmp :tabs="{ 
-        '1': 'Сервис',
-        '2': 'Склад',
-        '3': 'Аналитика',}" />
+
+      <div class="backdrop">
+        <nav-cmp :tabs="{ 
+          '1': 'Сервис',
+          '2': 'Склад',
+          '3': 'Аналитика'
+        }" />
+      </div>
+
     </div>
 
-      <input-cmp dropMargin="drop"
-        @input-handler="inputHandler" />
-      <button-cmp btnName="Кнопка"
-        :loading="false"
-        @click-handler="clickHandler" />
+      <div class="backdrop ">
+        <input-cmp 
+          @input-handler="inputHandler" />
+        <button-cmp btnName="Кнопка"
+          :loading="false"
+          @click-handler="clickHandler" />
+      </div>
 
-        <select-cmp selectName="Выбрать вариант который нравится" 
+        
+        <div class="backdrop">
+          <select-cmp selectName="Выбрать вариант" 
           :selectFieldItem="selectFieldItem" />
+        </div>
   </div>
 
   
@@ -69,6 +79,8 @@ import NavCmp from './components/controls/NavCmp.vue';
 </script>
 
 <style lang="scss">
+@import '~/src/assets/styles/custom.scss';
+
 body {
   margin: 0;
   padding: 0;

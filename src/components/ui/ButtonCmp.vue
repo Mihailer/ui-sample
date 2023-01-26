@@ -57,7 +57,7 @@ export default {
     @include flexRow( center, center );
     @include font( 13px, normal );
     height: 34px;
-    margin: 0px 5px;
+    margin: 0px 4px;
     width: calc( 10px * v-bind( buttonSize ) );
     border: $main-border;
     border-radius: $main-border-radius;
@@ -67,7 +67,7 @@ export default {
 
     &:hover {
         background-color: $main-hover;
-        color: white;
+        color: $main-white;
     }
 }
 </style>

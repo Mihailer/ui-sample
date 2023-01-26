@@ -37,10 +37,9 @@ import TabCmp from '../ui/TabCmp.vue';
 @import '~/src/assets/styles/custom.scss';
 
 .nav-cmp {
-    @include flexRow( flex-start, center );
+    @include flexRow( space-between, center );
     height: 100%;
-    width: 300px;
-    margin: 0px 5px;
+    width: auto;
 
     @media screen and ( max-width: 540px ) {
         @include flexRow( flex-start, center );

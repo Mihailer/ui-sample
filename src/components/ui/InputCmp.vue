@@ -39,7 +39,7 @@ import { ref } from 'vue'
     @include font( 13px, normal );
     height: 30px;
     padding: 0px 10px;
-    margin: 0px 10px;
+    margin: 0px 4px;
     border: $main-border;
     border-radius: $main-border-radius;
     outline: none;

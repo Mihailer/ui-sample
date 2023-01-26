@@ -20,13 +20,19 @@
 .tab-cmp {  
     height: 34px;
     padding: 0px 5px;
-    margin: 0px 5px;
-    background-color: transparent;
+    margin: 0px 4px;
+    // background-color: transparent;
     color: $main-color;
     border: none;
     border-radius: $main-border-radius;
     border: $main-border;
     outline: none;
     box-shadow: $main-shadow;
+    
+    &:hover {
+        background-color: $main-hover;
+        color: $main-white;
+    }
+
 }
 </style>

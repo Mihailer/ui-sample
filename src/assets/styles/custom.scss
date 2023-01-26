@@ -25,18 +25,28 @@
 // ---------------------------------- VARS
 $main-white: #fdfdfd;
 $main-color: #275179;
-$main-hover: rgba(46, 115, 179, 0.5);
+$main-hover: #2e73b380;
+$main-backdrop: #a3b9cc80;
 $main-border: 2px solid $main-color;
 $main-border-tr: 2px solid transparent;
 $main-border-radius: 4px;
 $main-shadow: 0px 0px 6px 1px $main-hover;
 
 // ---------------------------------- CLASS
+.backdrop {
+    @include flexRow( center, center );
+    height: auto;
+    padding: 10px 10px;
+    margin: 10px;
+    border-radius: $main-border-radius;
+    background-color: $main-backdrop;
+}
+
 .load-class {
     @include flexRow( center, center );
     @include font( 13px, normal );
     height: 34px;
-    margin: 0px 5px;
+    margin: 0px 4px;
     width: calc( 10px * v-bind( buttonSize ) );
     border: $main-border;
     border-radius: $main-border-radius;
