@@ -1,21 +1,18 @@
 <template>
-  <div style="display: flex; 
+  <div style=" display: flex; 
     justify-content: space-between; 
     align-items: flex-start; 
-    height: 100px; 
+    max-height: 70px; 
     width: auto;">
 
-    <div style="display: flex; 
+    <div style=" display: flex; 
       justify-content: space-between; 
       align-items: flex-start; 
+      height: auto;
       width: auto;" >
 
       <div class="backdrop">
-        <nav-cmp :tabs="{ 
-          '1': 'Сервис',
-          '2': 'Склад',
-          '3': 'Аналитика'
-        }" />
+        <nav-cmp :tabs="tabsData" @click-handler-tab="setActiveTab" />
       </div>
 
     </div>
@@ -28,11 +25,22 @@
           @click-handler="clickHandler" />
       </div>
 
-        
-        <div class="backdrop">
-          <select-cmp selectName="Выбрать вариант" 
-          :selectFieldItem="selectFieldItem" />
-        </div>
+      <div class="backdrop" >
+        <select-cmp selectName="Выбрать вариант" 
+        :selectFieldItem="selectFieldItem" />
+      </div>
+      <div class="backdrop" >
+        <select-cmp selectName="Выбрать вариант" 
+        :selectFieldItem="selectFieldItem" />
+      </div>
+      <div class="backdrop" >
+        <select-cmp selectName="Выбрать вариант" 
+        :selectFieldItem="selectFieldItem" />
+      </div>
+  </div>
+
+  <div class="content">
+    <table-group-cmp />
   </div>
 
   
@@ -45,12 +53,17 @@ import InputCmp from './components/ui/InputCmp.vue';
 import ButtonCmp from './components/ui/ButtonCmp.vue';
 import NavCmp from './components/controls/NavCmp.vue';
 
+import { tabs, selectFieldItem } from './assets/data/data'
+
+import TableGroupCmp from './components/tables/TableGroupCmp.vue';
+
   export default {
     components: {
       SelectCmp,
       ButtonCmp,
       InputCmp,
-      NavCmp
+      NavCmp,
+      TableGroupCmp
     },
 
     setup() {
@@ -62,17 +75,18 @@ import NavCmp from './components/controls/NavCmp.vue';
         console.log( 'clickHandler');
       }
 
-      const selectFieldItem = ref([
-        'Вариант 1',
-        'Вариант 2',
-        'Вариант 3',
-        'Вариант 4'
-      ])
+      const tabsData = ref( tabs )
+
+      const setActiveTab = ( data: number ) => {
+        console.log( data );
+      }
 
       return {
         inputHandler,
         clickHandler,
-        selectFieldItem
+        selectFieldItem,
+        tabsData,
+        setActiveTab
       }
     }
   }
@@ -93,10 +107,14 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  // font-family: Avenir, Helvetica, Arial, sans-serif;
-  // color: #2c3e50;
-  // margin-top: 60px;
 }
+
+.content {
+  @include flexCol( flex-start, center );
+  height: 100%;
+  width: 100%;
+}
+
 </style>

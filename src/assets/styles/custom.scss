@@ -34,8 +34,8 @@ $main-shadow: 0px 0px 6px 1px $main-hover;
 
 // ---------------------------------- CLASS
 .backdrop {
-    @include flexRow( center, center );
-    height: auto;
+    @include flexRow( center, flex-start );
+    z-index: 10;
     padding: 10px 10px;
     margin: 10px;
     border-radius: $main-border-radius;

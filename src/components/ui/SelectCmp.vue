@@ -34,6 +34,9 @@ import { ref, computed } from 'vue'
 
             const selectFieldElem = ( fieldName: any ): void => {
                 currentSelectName.value = fieldName
+
+                console.log( currentSelectName.value );
+                
                 selectedField()
             }
 
@@ -71,10 +74,6 @@ import { ref, computed } from 'vue'
     background-color: $main-white;
     box-shadow: $main-shadow;
 
-    &::placeholder {
-        color: $main-color;
-    }
-
     &:hover {
         background-color: $main-hover;
         color: $main-white;
@@ -84,19 +83,12 @@ import { ref, computed } from 'vue'
         } 
     }
 
-    &:focus {
-        background-color: $main-hover;
-        color: $main-color;
-        background-color: $main-white;
-    }
-
     &-options {
         @include flexCol( flex-start, flex-start );
         @include font( 13px, normal );
         height: auto;
         min-width: 120px;
         width: calc( 10px * v-bind( selectSize ) + 20px );
-        padding: 0px 0px;
         margin: 2px 4px;
         border: $main-border;
         border-radius: $main-border-radius;
@@ -106,35 +98,20 @@ import { ref, computed } from 'vue'
         box-shadow: $main-shadow;
 
         &-field {
+            z-index: 1;
             @include flexRow( flex-start, center );
             @include font( 13px, normal );
             height: 30px;
             width: calc( 100% - 20px );
             padding: 0px 10px;
             margin: 0px 0px;
-            // border: $main-border;
-            // border-radius: $main-border-radius;
             outline: none;
             color: $main-color;
-            // box-shadow: $main-shadow;
 
-            &::placeholder {
-                color: $main-color;
-            }
 
             &:hover {
                 background-color: $main-hover;
                 color: $main-white;
-
-                &::placeholder {
-                    color: $main-white;
-                } 
-            }
-
-            &:focus {
-                background-color: $main-hover;
-                color: $main-color;
-                background-color: $main-white;
             }
         }
     }

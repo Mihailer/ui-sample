@@ -1,15 +1,28 @@
 <template>
     <button class="tab-cmp" 
         type="button" 
-        @click="$emit( 'click-handler' )">
+        @click="setActiveTab( name )">
         {{ name }}
     </button>
 </template>
 
-<script>
+<script lang="ts">
     export default {
         props: {
             name: { type: String, default: 'Tab' }
+        },
+
+        emits:[ 'click-tab-handler' ],
+
+        setup( props, { emit }) {
+
+            const setActiveTab = ( data: string ): void => {
+                emit( 'click-tab-handler', data )
+            }
+
+            return {
+                setActiveTab
+            }
         }
     }
 </script>
@@ -21,7 +34,6 @@
     height: 34px;
     padding: 0px 5px;
     margin: 0px 4px;
-    // background-color: transparent;
     color: $main-color;
     border: none;
     border-radius: $main-border-radius;
