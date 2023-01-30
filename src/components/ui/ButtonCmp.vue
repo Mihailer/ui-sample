@@ -13,7 +13,7 @@ import  SpinnerCmp  from './SpinnerCmp.vue'
 
 export default {
     props: {
-        loading: { type: Boolean, default: true },
+        loading: { type: Boolean, default: false },
         btnName: { type: String, default: 'Btn' }
     },
 
@@ -25,7 +25,7 @@ export default {
 
     setup( props: any, { emit }: any ) {
         const btnNameText = ref( props.btnName )
-        const buttonSize = ref( btnNameText.value.split('').length )
+        const buttonSize = ref( props.btnName.split('').length )
         const loading = ref( props.loading )
         
         const load = (): void => {
@@ -69,5 +69,9 @@ export default {
         background-color: $main-hover;
         color: $main-white;
     }
+}
+
+.load-class {
+    @include btn( v-bind( buttonSize ) )
 }
 </style>

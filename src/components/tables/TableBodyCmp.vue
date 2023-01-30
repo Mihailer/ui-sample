@@ -4,7 +4,8 @@
         :key="bodyTextIdx"
         @click="showTableItem( bodyText )" >
         <span class="table-body-item"
-            v-for="( textItem, textItemIdx ) in bodyText">
+            v-for="( textItem, textItemIdx ) in bodyText"
+            :key="textItemIdx">
             {{ textItem }}
         </span>
     </div>
@@ -12,6 +13,10 @@
 
 <script lang="ts">
 import { ref } from 'vue'
+import SelectCmp from '../ui/SelectCmp.vue'
+
+
+
     export default {
         props: {
             tableBodyData: { type: Array, default: () => { return [] } }
@@ -19,10 +24,11 @@ import { ref } from 'vue'
 
         emits: [ 'show-table-item' ],
 
-        setup( props: any, { emit } ) {
-            const itemWidth = ref( props.tableBodyData.length ).value
+        setup( props: any, { emit }: any ) {
+            
+            const itemWidth = ref<number>( props.tableBodyData.length ).value
 
-            const showTableItem = ( item: any ) => {
+            const showTableItem = ( item: any ): void => {
                 emit( 'show-table-item', item )
             }
 
@@ -30,6 +36,11 @@ import { ref } from 'vue'
                 itemWidth,
                 showTableItem
             }
+        },
+
+        components: {
+            SelectCmp,
+
         }
     }
 </script>
@@ -42,7 +53,6 @@ import { ref } from 'vue'
     height: 40px;
     width: 98%;
     margin: 5px 5px;
-    // border-bottom: $main-border;
     color: $main-color;
     background-color: $main-white;
 
@@ -55,7 +65,7 @@ import { ref } from 'vue'
         @include flexRow( flex-start, center );
         @include font( 12px, normal );
         height: 100%;
-        width: calc( 100% / v-bind( itemWidth ) );
+        width: calc( 100% / v-bind( itemWidth ) - 10px );
         padding: 5px;
     }
 }

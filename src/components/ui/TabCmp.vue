@@ -14,7 +14,7 @@
 
         emits:[ 'click-tab-handler' ],
 
-        setup( props, { emit }) {
+        setup( props: object, { emit }: any ) {
 
             const setActiveTab = ( data: string ): void => {
                 emit( 'click-tab-handler', data )

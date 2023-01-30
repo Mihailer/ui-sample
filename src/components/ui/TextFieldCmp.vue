@@ -1,35 +1,20 @@
 <template>
-    <input :class="[ 
-        dropMargin === 'drop' 
-            ? 'drop-margin' 
-            : 'input-cmp' ]" 
-        v-model="fieldValue"
-        :placeholder="placeholder"
-        @change="emitFieldText" />
-        
+    <span class="text-field-cmp">
+        {{ textData }}
+    </span>
 </template>
 
 <script lang="ts"> 
-
 import { ref } from 'vue'
     export default {
         props: {
-            placeholder: { type: String, default: 'Введите текст' },
-            dropMargin: { type: String, default: '' }
+            textData: { type: String, default: 'Текстовое поле'}
         },
 
-        emits: [ 'input-handler' ],
-
-        setup( props: any, { emit }: any ) {
-
-            const fieldValue = ref( '' )
-            const emitFieldText = () => {
-                emit( 'input-handler', fieldValue.value )
-            }
+        setup() {
 
             return {
-                emitFieldText,
-                fieldValue
+    
             }
         }
     }
@@ -38,7 +23,8 @@ import { ref } from 'vue'
 <style lang="scss" scoped>
 @import '~/src/assets/styles/custom.scss';
 
-.input-cmp {
+.text-field-cmp {
+    @include flexRow( flex-start, center );
     @include font( 13px, normal );
     height: 30px;
     padding: 0px 10px;

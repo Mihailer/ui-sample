@@ -24,11 +24,10 @@ import TabCmp from '../ui/TabCmp.vue';
         },
 
         setup() {
-            const active = ref( '1' )
+            const active = ref<string>( '1' )
 
             const clickTabHandler = ( data: string ): void => {
                 console.log( data );
-                
             }
 
             return {

@@ -8,7 +8,7 @@
             <span class="select-cmp-options-field"
                 v-for="( field, fieldIndex ) in selectFieldItem" 
                     :key="fieldIndex"
-                    @click="selectFieldElem( field )"> 
+                    @click="selectFieldElem( field as string )"> 
                     {{ field }} 
             </span>
         </div>
@@ -16,7 +16,8 @@
 </template>
 
 <script lang="ts"> 
-import { ref, computed } from 'vue'
+import { ref, computed, PropType } from 'vue'
+
     export default {
         props: {
             selectName: { type: String, default: '' },
@@ -24,19 +25,18 @@ import { ref, computed } from 'vue'
         },
 
         setup( props: any ) {
-            const selectSize = computed( () => props.selectName.split('').length )
-            const selectField = ref( false )
-            const currentSelectName = ref( props.selectName )
+            
+            const selectSize = computed(() => props.selectName.split('').length )
+            const selectField = ref<boolean>( false )
+            const currentSelectName = ref<string>( props.selectName )
 
             const selectedField = (): void => {
                 selectField.value = !selectField.value
             }
 
-            const selectFieldElem = ( fieldName: any ): void => {
+            const selectFieldElem = ( fieldName: string ): void => {
                 currentSelectName.value = fieldName
-
                 console.log( currentSelectName.value );
-                
                 selectedField()
             }
 
@@ -55,7 +55,6 @@ import { ref, computed } from 'vue'
 @import '~/src/assets/styles/custom.scss';
 
 .select-wrapper {
-    // background-color: rgb(221, 136, 136);
     @include flexCol( flex-start, flex-start )
 }
 
@@ -84,6 +83,7 @@ import { ref, computed } from 'vue'
     }
 
     &-options {
+        z-index: 20;
         @include flexCol( flex-start, flex-start );
         @include font( 13px, normal );
         height: auto;
@@ -98,7 +98,6 @@ import { ref, computed } from 'vue'
         box-shadow: $main-shadow;
 
         &-field {
-            z-index: 1;
             @include flexRow( flex-start, center );
             @include font( 13px, normal );
             height: 30px;
