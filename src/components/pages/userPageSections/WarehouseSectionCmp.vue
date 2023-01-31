@@ -19,6 +19,7 @@ export default {
     setup() {
 
         const headerControlPanelWarehouse: object = {
+            cpAddButtonName: 'Добавить запчасть',
             cpSearchPlaceholder: 'Найти запчасть',
             cpOptionsData: [
                 'Все',
@@ -43,11 +44,11 @@ export default {
         return {
             tableWarehouseHeaderData,
             tableWarehouseData,
+            headerControlPanelWarehouse,
             inputHandler,
             clickHandler,
             showTableItem,
 
-            headerControlPanelWarehouse
         }
     }
 }

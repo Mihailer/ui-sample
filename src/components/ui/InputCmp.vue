@@ -28,8 +28,8 @@ import { ref } from 'vue'
             }
 
             return {
-                emitFieldText,
-                fieldValue
+                fieldValue,
+                emitFieldText
             }
         }
     }

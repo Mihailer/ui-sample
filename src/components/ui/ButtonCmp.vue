@@ -41,9 +41,9 @@ export default {
 
         return {
             loading,
-            load,
             btnNameText,
-            buttonSize
+            buttonSize,
+            load,
         }
     }
 }

@@ -4,6 +4,7 @@
             :headerControlPanel="headerControlPanel"
             @items-width="itemsWidth"
             @input-handler="inputHandler" />
+            
         <table-body-cmp :tableBodyData="tableData"
             :itemsWidth="bodyItemsWidth"
             @show-table-item="showTableItem" />
@@ -45,10 +46,10 @@ import TableBodyCmp from './TableBodyCmp.vue';
             }
 
             return {
+                bodyItemsWidth,
                 itemsWidth,
                 showTableItem,
                 inputHandler,
-                bodyItemsWidth,
             }
         }
     }
@@ -59,7 +60,7 @@ import TableBodyCmp from './TableBodyCmp.vue';
 
 .table-group {
     @include flexCol( flex-start, center );
-    height: auto;
+    height: calc( 100vh - 100px );
     width: 98%;
     margin: 0px 0px;
     border: $main-border;

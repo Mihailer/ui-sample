@@ -1,17 +1,24 @@
 <template>
     <div class="service-control">
-        <div class="backdrop">
+        <div class="flatdrop">
+            <button-cmp :btnName="headerControlPanel.cpAddButtonName"
+                @click-handler="clickHandler" />
+        </div>
+        <div class="flatdrop">
+            <div class="backdrop">
             <input-cmp @input-handler="inputHandler"
                 :placeholder="headerControlPanel.cpSearchPlaceholder" />
-        </div>
-        <div class="status backdrop">
-            <select-cmp :selectName="headerControlPanel.cpOptionsData[ 0 ]" 
-                :selectFieldItem="headerControlPanel.cpOptionsData" />
+            </div>
+            <div class="status backdrop">
+                <select-cmp :selectName="headerControlPanel.cpOptionsData[ 0 ]" 
+                    :selectFieldItem="headerControlPanel.cpOptionsData" />
+            </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
+import ButtonCmp from '../ui/ButtonCmp.vue';
 import InputCmp from '../ui/InputCmp.vue';
 import SelectCmp from '../ui/SelectCmp.vue'
 import { ststusFieldItem } from '@/assets/data/data'
@@ -22,6 +29,7 @@ import { ststusFieldItem } from '@/assets/data/data'
         },
 
         components: {
+            ButtonCmp,
             InputCmp,
             SelectCmp
         },
@@ -30,13 +38,19 @@ import { ststusFieldItem } from '@/assets/data/data'
 
         setup( props: any, { emit }: any ) {
 
+            const clickHandler = () => {
+                console.log( 'Новый заказ' );
+                
+            }
+
             const inputHandler = ( data: string ): void => {
                 emit( 'input-handler', data )
             }
 
             return {
+                ststusFieldItem,
+                clickHandler,
                 inputHandler,
-                ststusFieldItem
             }
         }
     }

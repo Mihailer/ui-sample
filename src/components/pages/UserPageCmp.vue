@@ -6,6 +6,8 @@
             v-if="currentTab == 1" />
         <warehouse-section-cmp 
             v-if="currentTab == 2" />
+        <analytics-section-cmp 
+            v-if="currentTab == 3" />
     </div>
 </template>
   
@@ -14,6 +16,7 @@ import { ref } from 'vue'
 import HeaderCmp from '../header/HeaderCmp.vue'
 import ServiceSectionCmp from '../pages/userPageSections/ServiceSectionCmp.vue'
 import WarehouseSectionCmp from './userPageSections/WarehouseSectionCmp.vue'
+import AnalyticsSectionCmp from './userPageSections/AnalyticsSectionCmp.vue'
 
 import { tabs, selectFieldItem } from '@/assets/data/data'
 
@@ -21,7 +24,8 @@ import { tabs, selectFieldItem } from '@/assets/data/data'
         components: {
             HeaderCmp,
             ServiceSectionCmp,
-            WarehouseSectionCmp
+            WarehouseSectionCmp,
+            AnalyticsSectionCmp
         },
 
     setup() {
@@ -47,11 +51,11 @@ import { tabs, selectFieldItem } from '@/assets/data/data'
 
         return {
             currentTab,
+            selectFieldItem,
+            tabsData,
             clickTab,
             inputHandler,
             clickHandler,
-            selectFieldItem,
-            tabsData,
             setActiveTab
         }
     }

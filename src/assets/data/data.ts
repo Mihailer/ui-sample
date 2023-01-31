@@ -100,7 +100,127 @@ export const tableData: Array<O> = [
       model: 'Redmi Note 7',
       status: 'New'
   },
-]
+  { 
+    number: '7', 
+    name: 'Mihail', 
+    tel: '89785654343', 
+    reason: 'AKB', 
+    deviceType: 'Smart',
+    manufacturer: 'Xiaomi',
+    model: 'Redmi 9',
+    status: 'New'
+},
+{ 
+    number: '8', 
+    name: 'Vlad', 
+    tel: '89785654343', 
+    reason: 'DM', 
+    deviceType: 'Smart',
+    manufacturer: 'Xiaomi',
+    model: 'Redmi Note 7',
+    status: 'New'
+},
+{ 
+    number: '9', 
+    name: 'Peter', 
+    tel: '89785654343', 
+    reason: 'DM', 
+    deviceType: 'Smart',
+    manufacturer: 'Xiaomi',
+    model: 'Redmi Note 7',
+    status: 'New'
+},
+{ 
+    number: '10', 
+    name: 'Mihail', 
+    tel: '89785654343', 
+    reason: 'AKB', 
+    deviceType: 'Smart',
+    manufacturer: 'Xiaomi',
+    model: 'Redmi 9',
+    status: 'New'
+},
+{ 
+    number: '11', 
+    name: 'Vlad', 
+    tel: '89785654343', 
+    reason: 'DM', 
+    deviceType: 'Smart',
+    manufacturer: 'Xiaomi',
+    model: 'Redmi Note 7',
+    status: 'New'
+},
+{ 
+    number: '12', 
+    name: 'Peter', 
+    tel: '89785654343', 
+    reason: 'DM', 
+    deviceType: 'Smart',
+    manufacturer: 'Xiaomi',
+    model: 'Redmi Note 7',
+    status: 'New'
+    },
+    { 
+        number: '13', 
+        name: 'Mihail', 
+        tel: '89785654343', 
+        reason: 'AKB', 
+        deviceType: 'Smart',
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        status: 'New'
+    },
+    { 
+        number: '14', 
+        name: 'Vlad', 
+        tel: '89785654343', 
+        reason: 'DM', 
+        deviceType: 'Smart',
+        manufacturer: 'Xiaomi',
+        model: 'Redmi Note 7',
+        status: 'New'
+    },
+    { 
+        number: '15', 
+        name: 'Peter', 
+        tel: '89785654343', 
+        reason: 'DM', 
+        deviceType: 'Smart',
+        manufacturer: 'Xiaomi',
+        model: 'Redmi Note 7',
+        status: 'New'
+    },
+    { 
+        number: '16', 
+        name: 'Mihail', 
+        tel: '89785654343', 
+        reason: 'AKB', 
+        deviceType: 'Smart',
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        status: 'New'
+    },
+    { 
+        number: '17', 
+        name: 'Vlad', 
+        tel: '89785654343', 
+        reason: 'DM', 
+        deviceType: 'Smart',
+        manufacturer: 'Xiaomi',
+        model: 'Redmi Note 7',
+        status: 'New'
+    },
+    { 
+        number: '18', 
+        name: 'Peter', 
+        tel: '89785654343', 
+        reason: 'DM', 
+        deviceType: 'Smart',
+        manufacturer: 'Xiaomi',
+        model: 'Redmi Note 7',
+        status: 'New'
+    },
+].reverse()
 
 export const tableWarehouseHeaderData: Array<T> = [
     '№',
@@ -203,6 +323,96 @@ export const tableWarehouseData: Array<O> = [
         quantity: 4,
         partCost: 3200
     },
-]
+    { 
+        number: '11', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '12', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '13', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '14', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '15', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '16', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '17', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '18', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '19', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '20', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+].reverse()
 
 

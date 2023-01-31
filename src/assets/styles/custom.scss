@@ -13,6 +13,7 @@
 }
 // ---------------------------------- FLEX
 
+// -------------------------- OTHER MIXINS
 @mixin font( $size, $weight ) {
     font-size: $size;
     font-weight: $weight;
@@ -32,20 +33,19 @@
     color: $main-color;
     background-color: $main-hover;
     box-shadow: $main-shadow;
-
 }
+// -------------------------- OTHER MIXINS
 
 // ---------------------------------- VARS
-
+    $main-white: #fdfdfd;
+    $main-color: #275179;
+    $main-hover: #2e73b380;
+    $main-backdrop: #a3b9cc80;
+    $main-border: 2px solid $main-color;
+    $main-border-tr: 2px solid transparent;
+    $main-border-radius: 4px;
+    $main-shadow: 0px 0px 6px 1px $main-hover;
 // ---------------------------------- VARS
-$main-white: #fdfdfd;
-$main-color: #275179;
-$main-hover: #2e73b380;
-$main-backdrop: #a3b9cc80;
-$main-border: 2px solid $main-color;
-$main-border-tr: 2px solid transparent;
-$main-border-radius: 4px;
-$main-shadow: 0px 0px 6px 1px $main-hover;
 
 // ---------------------------------- CLASS
 .backdrop {
@@ -54,7 +54,11 @@ $main-shadow: 0px 0px 6px 1px $main-hover;
     padding: 5px 5px;
     margin: 3px;
     border-radius: $main-border-radius;
-    // background-color: $main-backdrop;
+}
+.flatdrop {
+    @include flexRow( space-between, flex-start );
+    width: auto;
+    margin: 0px 0px 0px 5px;
 }
 
 .drop-margin {

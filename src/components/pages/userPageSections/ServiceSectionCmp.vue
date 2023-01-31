@@ -17,8 +17,9 @@ export default {
     },
 
     setup() {
-
+   
         const headerControlPanelService: object = {
+            cpAddButtonName: 'Новый заказ',
             cpSearchPlaceholder: 'Найти заказ',
             cpOptionsData: [
                 'Все заказы',
@@ -47,11 +48,10 @@ export default {
         return {
             tableHeaderData,
             tableData,
+            headerControlPanelService,
             inputHandler,
             clickHandler,
             showTableItem,
-
-            headerControlPanelService
         }
     }
 }
