@@ -1,7 +1,11 @@
 <template>
-    <header-cmp />
+    <header-cmp
+        @click-tab=clickTab />
     <div class="content">
-        <service-section-cmp />
+        <service-section-cmp 
+            v-if="currentTab == 1" />
+        <warehouse-section-cmp 
+            v-if="currentTab == 2" />
     </div>
 </template>
   
@@ -9,18 +13,24 @@
 import { ref } from 'vue'
 import HeaderCmp from '../header/HeaderCmp.vue'
 import ServiceSectionCmp from '../pages/userPageSections/ServiceSectionCmp.vue'
-
-
+import WarehouseSectionCmp from './userPageSections/WarehouseSectionCmp.vue'
 
 import { tabs, selectFieldItem } from '@/assets/data/data'
 
     export default {
         components: {
             HeaderCmp,
-            ServiceSectionCmp
+            ServiceSectionCmp,
+            WarehouseSectionCmp
         },
 
     setup() {
+
+        const currentTab = ref<string | number>( 1 )
+        const clickTab = ( data: string | number): void => {
+            currentTab.value = data
+        }
+
         const inputHandler = ( text: string ): void => {
             console.log( 'inputHandler : ' + `${ text }` );
         }
@@ -36,6 +46,8 @@ import { tabs, selectFieldItem } from '@/assets/data/data'
         }
 
         return {
+            currentTab,
+            clickTab,
             inputHandler,
             clickHandler,
             selectFieldItem,

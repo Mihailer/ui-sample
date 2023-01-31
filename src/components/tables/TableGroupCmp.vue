@@ -1,13 +1,17 @@
 <template>
     <div class="table-group">
         <table-head-cmp :tableHeaderData="tableHeaderData"
+            :headerControlPanel="headerControlPanel"
+            @items-width="itemsWidth"
             @input-handler="inputHandler" />
         <table-body-cmp :tableBodyData="tableData"
+            :itemsWidth="bodyItemsWidth"
             @show-table-item="showTableItem" />
     </div>
 </template>
 
 <script lang="ts">
+import { ref } from 'vue'
 import TableHeadCmp from './TableHeadCmp.vue';
 import TableBodyCmp from './TableBodyCmp.vue';
 
@@ -18,13 +22,19 @@ import TableBodyCmp from './TableBodyCmp.vue';
         },  
 
         props: {
+            headerControlPanel: { type: Object, default: () => { return {} } },
             tableHeaderData: { type: Array, default: () => { return [] } },
             tableData: { type: Array, default: () => { return [] } }
         },
         
-        setup( props, { emit }: any ) {
+        setup( props: any, { emit }: any ) {
 
             emits: [ 'input-handler', 'show-table-item' ]
+
+            const bodyItemsWidth = ref<number>( 0 )
+            const itemsWidth = ( data: number ) => {
+                bodyItemsWidth.value = data
+            }
 
             const showTableItem = ( itemData: object ): void => {
                 emit( 'show-table-item', itemData )
@@ -35,8 +45,10 @@ import TableBodyCmp from './TableBodyCmp.vue';
             }
 
             return {
+                itemsWidth,
                 showTableItem,
-                inputHandler
+                inputHandler,
+                bodyItemsWidth,
             }
         }
     }

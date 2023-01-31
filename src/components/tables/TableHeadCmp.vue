@@ -1,6 +1,7 @@
 <template>
     <div class="table-head-controls">
-        <control-panel-cmp @input-handler="inputHandler" />
+        <control-panel-cmp :headerControlPanel="headerControlPanel" 
+            @input-handler="inputHandler" />
     </div>
     <div class="table-head">
         <span class="table-head-item" 
@@ -16,13 +17,15 @@ import { ref } from 'vue'
 import ControlPanelCmp from '../controls/ControlPanelCmp.vue'
     export default {
         props: {
+            headerControlPanel: { type: Object, default: () => { return {} } },
             tableHeaderData: { type: Array, default: () => { return [] } }
         },
 
-        emits: [ 'input-handler' ],
+        emits: [ 'input-handler', 'items-width' ],
 
         setup( props: any, { emit }: any ) {
             const itemWidth = ref<number>( props.tableHeaderData.length ).value
+                emit( 'items-width', itemWidth )
 
             const inputHandler = ( data: string ): void => {
                 emit( 'input-handler', data )

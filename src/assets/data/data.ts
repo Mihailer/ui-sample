@@ -102,4 +102,107 @@ export const tableData: Array<O> = [
   },
 ]
 
+export const tableWarehouseHeaderData: Array<T> = [
+    '№',
+    'Тип устройства',
+    'Название запчасти',
+    'Производитель',
+    'Модель',
+    'Количество на складе',
+    'Стоимость запчасти'
+]
+
+export const tableWarehouseData: Array<O> = [
+    { 
+        number: '1', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '2', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '3', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '4', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '5', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '6', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '7', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '8', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '9', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+    { 
+        number: '10', 
+        deviceType: 'Смартфон', 
+        partName: 'Дисплейный модуль',  
+        manufacturer: 'Xiaomi',
+        model: 'Redmi 9',
+        quantity: 4,
+        partCost: 3200
+    },
+]
+
 

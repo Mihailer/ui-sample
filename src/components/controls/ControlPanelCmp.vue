@@ -1,11 +1,12 @@
 <template>
     <div class="service-control">
         <div class="backdrop">
-            <input-cmp @input-handler="inputHandler" />
+            <input-cmp @input-handler="inputHandler"
+                :placeholder="headerControlPanel.cpSearchPlaceholder" />
         </div>
         <div class="status backdrop">
-            <select-cmp selectName="Все заказы" 
-                :selectFieldItem="ststusFieldItem" />
+            <select-cmp :selectName="headerControlPanel.cpOptionsData[ 0 ]" 
+                :selectFieldItem="headerControlPanel.cpOptionsData" />
         </div>
     </div>
 </template>
@@ -16,6 +17,9 @@ import SelectCmp from '../ui/SelectCmp.vue'
 import { ststusFieldItem } from '@/assets/data/data'
 
     export default {
+        props: {
+            headerControlPanel: { type: Object, default: () => { return {} } }
+        },
 
         components: {
             InputCmp,

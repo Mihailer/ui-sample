@@ -6,7 +6,7 @@
             :name="tab" 
             :id="tabIndex"
                 @click="active = tabIndex"
-                @click-tab-handler="clickTabHandler( tab )" />
+                @click-tab-handler="clickTabHandler( tab, tabIndex )" />
     </div>
 </template>
 
@@ -23,11 +23,13 @@ import TabCmp from '../ui/TabCmp.vue';
             TabCmp
         },
 
-        setup() {
+        emits: [ 'click-tab' ],
+
+        setup( props: any, { emit }: any ) {
             const active = ref<string>( '1' )
 
-            const clickTabHandler = ( data: string ): void => {
-                console.log( data );
+            const clickTabHandler = ( data: string, dataIndex: string | number ): void => {
+                emit( 'click-tab', dataIndex )
             }
 
             return {

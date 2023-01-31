@@ -1,15 +1,15 @@
 <template>
     <table-group-cmp 
-        :headerControlPanel="headerControlPanelService"
-        :tableHeaderData="tableHeaderData" 
-        :tableData="tableData"
+        :headerControlPanel="headerControlPanelWarehouse"
+        :tableHeaderData="tableWarehouseHeaderData" 
+        :tableData="tableWarehouseData"
             @input-handler="inputHandler"
             @show-table-item="showTableItem" />
 </template>
   
 <script lang="ts">
 import TableGroupCmp from '/src/components/tables/TableGroupCmp.vue';
-import { tableData, tableHeaderData } from '@/assets/data/data'
+import { tableWarehouseData, tableWarehouseHeaderData } from '@/assets/data/data'
 
 export default {
     components: {
@@ -18,17 +18,13 @@ export default {
 
     setup() {
 
-        const headerControlPanelService: object = {
-            cpSearchPlaceholder: 'Найти заказ',
+        const headerControlPanelWarehouse: object = {
+            cpSearchPlaceholder: 'Найти запчасть',
             cpOptionsData: [
-                'Все заказы',
-                'Новый',
-                'Диагностика',
-                'Ждет запчасть',
-                'В работе',
-                'Ждет клиента',
-                'Оплачен',
-                'Закрыт'
+                'Все',
+                'Дисплей',
+                'Аккумулятор',
+                'Шлейф'
             ]
         }
 
@@ -45,13 +41,13 @@ export default {
         }
 
         return {
-            tableHeaderData,
-            tableData,
+            tableWarehouseHeaderData,
+            tableWarehouseData,
             inputHandler,
             clickHandler,
             showTableItem,
 
-            headerControlPanelService
+            headerControlPanelWarehouse
         }
     }
 }

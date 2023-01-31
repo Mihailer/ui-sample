@@ -2,19 +2,12 @@
     <div class="header-cmp">
         <div class="header-cmp-left">
             <div class="backdrop">
-                <nav-cmp :tabs="tabsData" @click-handler-tab="setActiveTab" />
+                <nav-cmp :tabs="tabsData" 
+                @click-tab="clickTab"
+                @click-handler-tab="setActiveTab" />
             </div>
         </div>
         <div class="header-cmp-right">
-            <!-- <div class="backdrop ">
-                <input-cmp 
-                    placeholder="Поиск"
-                    @input-handler="inputHandler" />
-                <button-cmp btnName="Найти"
-                    :loading="false"
-                    @click-handler="clickHandler" />
-            </div> -->
-
             <div class="backdrop ">
                 <text-field-cmp textData="mihail.pisarev.js@gmail.com" />
                 <button-cmp btnName="Выйти"
@@ -29,7 +22,6 @@
 import { ref } from 'vue'
 import { tabs } from '@/assets/data/data'
 import NavCmp from '../controls/NavCmp.vue'
-import InputCmp from '../ui/InputCmp.vue'
 import ButtonCmp from '../ui/ButtonCmp.vue'
 import TextFieldCmp from '../ui/TextFieldCmp.vue'
 
@@ -37,14 +29,19 @@ import TextFieldCmp from '../ui/TextFieldCmp.vue'
 
         components: {
             NavCmp,
-            InputCmp,
             ButtonCmp,
             TextFieldCmp
         },
 
-        setup() {
+        setup( props: any, { emit }: any ) {
+
+            emits: [ 'click-tab' ]
 
             const tabsData = ref( tabs )
+
+            const clickTab = ( data: string | number ): void => {
+                emit( 'click-tab', data )
+            }
 
             const setActiveTab = ( data: number ) => {
                 console.log( data );
@@ -60,6 +57,7 @@ import TextFieldCmp from '../ui/TextFieldCmp.vue'
 
             return {
                 tabsData,
+                clickTab,
                 setActiveTab,
                 inputHandler,
                 clickHandler

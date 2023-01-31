@@ -19,6 +19,7 @@ import SelectCmp from '../ui/SelectCmp.vue'
 
     export default {
         props: {
+            itemsWidth: { type: Number, default: 0 },
             tableBodyData: { type: Array, default: () => { return [] } }
         },
 
@@ -26,21 +27,17 @@ import SelectCmp from '../ui/SelectCmp.vue'
 
         setup( props: any, { emit }: any ) {
             
-            const itemWidth = ref<number>( props.tableBodyData.length ).value
-
             const showTableItem = ( item: any ): void => {
                 emit( 'show-table-item', item )
             }
 
             return {
-                itemWidth,
                 showTableItem
             }
         },
 
         components: {
             SelectCmp,
-
         }
     }
 </script>
@@ -65,7 +62,7 @@ import SelectCmp from '../ui/SelectCmp.vue'
         @include flexRow( flex-start, center );
         @include font( 12px, normal );
         height: 100%;
-        width: calc( 100% / v-bind( itemWidth ) - 10px );
+        width: calc( 100% / v-bind( itemsWidth ) - 10px );
         padding: 5px;
     }
 }
