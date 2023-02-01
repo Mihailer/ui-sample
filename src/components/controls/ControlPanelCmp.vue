@@ -67,7 +67,7 @@ import { ststusFieldItem } from '@/assets/data/data'
     border: $main-border;
     border-radius: $main-border-radius;
     color: $main-color;
-    background-color: $main-white;
+    background-color: $main-flatdrop;
     box-shadow: $main-shadow;
 }
 

@@ -28,7 +28,7 @@ import SelectCmp from '../ui/SelectCmp.vue'
         setup( props: any, { emit }: any ) {
             const actualTableData = computed( () => props.tableBodyData )
             
-            const showTableItem = ( item: any ): void => {
+            const showTableItem = ( item: object ): void => {
                 emit( 'show-table-item', item )
             }
 

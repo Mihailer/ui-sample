@@ -37,6 +37,8 @@
 // -------------------------- OTHER MIXINS
 
 // ---------------------------------- VARS
+    $main-flatdrop: #2e73b380;
+    $main-red: #910a0a;
     $main-white: #fdfdfd;
     $main-color: #275179;
     $main-hover: #2e73b380;
@@ -100,5 +102,13 @@
     border: $main-border;
     outline: none;
     color: $main-white;
+  }
+
+  .warning-text {
+    @include flexRow( flex-stsrt, flex-stsrt ); 
+    color: $main-red;
+    height: 20px;
+    width: 100%;
+    @include font ( 10px, normal );
   }
 // ---------------------------------- CLASS

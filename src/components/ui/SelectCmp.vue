@@ -1,7 +1,7 @@
 <template>
     <div class="select-wrapper">
         <div class="select-cmp"
-            @click="selectedField" >
+            @click="bSelectedField" >
             <span>{{ currentSelectName }}</span>
         </div>
         <div class="select-cmp-options" v-if="selectField">
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts"> 
-import { ref, computed, PropType } from 'vue'
+import { ref, computed } from 'vue'
 
     export default {
         props: {
@@ -30,19 +30,19 @@ import { ref, computed, PropType } from 'vue'
             const selectField = ref<boolean>( false )
             const currentSelectName = ref<string>( props.selectName )
 
-            const selectedField = (): void => {
+            const bSelectedField = (): void => {
                 selectField.value = !selectField.value
             }
 
             const selectFieldElem = ( fieldName: string ): void => {
                 currentSelectName.value = fieldName
                 console.log( currentSelectName.value );
-                selectedField()
+                bSelectedField()
             }
 
             return {
                 selectField,
-                selectedField,
+                bSelectedField,
                 selectSize,
                 selectFieldElem,
                 currentSelectName

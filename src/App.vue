@@ -1,19 +1,25 @@
 <template>
-  <user-page-cmp />
+  <user-page-cmp v-if="authState" />
+  <auth-page-cmp v-if="!authState" />
 </template>
 
 <script lang="ts">
+import { ref } from 'vue'
+import AuthPageCmp from './components/pages/AuthPageCmp.vue';
 import UserPageCmp from './components/pages/UserPageCmp.vue';
 
   export default {
     components: {
-      UserPageCmp
+      UserPageCmp,
+      AuthPageCmp
     },
 
     setup() {
 
-      return {
+      const authState = ref( true )
 
+      return {
+        authState
       }
     }
   }

@@ -4,6 +4,7 @@
             ? 'drop-margin' 
             : 'input-cmp' ]" 
         v-model="fieldValue"
+        :type=inputType
         :placeholder="placeholder"
         @change="emitFieldText" />
         
@@ -14,6 +15,7 @@
 import { ref } from 'vue'
     export default {
         props: {
+            inputType: { type: String, default: 'text' },
             placeholder: { type: String, default: 'Введите текст' },
             dropMargin: { type: String, default: '' }
         },
@@ -40,7 +42,8 @@ import { ref } from 'vue'
 
 .input-cmp {
     @include font( 13px, normal );
-    height: 30px;
+    min-height: 30px;
+    width: 98%;
     padding: 0px 10px;
     margin: 0px 4px;
     border: $main-border;
