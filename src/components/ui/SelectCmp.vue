@@ -24,7 +24,9 @@ import { ref, computed } from 'vue'
             selectFieldItem: { type: Array, default: () => { return [] } }
         },
 
-        setup( props: any ) {
+        emits: [ 'emit-select-value' ],
+
+        setup( props: any, { emit }: any ) {
             
             const selectSize = computed(() => props.selectName.split('').length )
             const selectField = ref<boolean>( false )
@@ -36,16 +38,16 @@ import { ref, computed } from 'vue'
 
             const selectFieldElem = ( fieldName: string ): void => {
                 currentSelectName.value = fieldName
-                console.log( currentSelectName.value );
+                emit( 'emit-select-value', currentSelectName.value )
                 bSelectedField()
             }
 
             return {
-                selectField,
-                bSelectedField,
                 selectSize,
-                selectFieldElem,
-                currentSelectName
+                selectField,
+                currentSelectName,
+                bSelectedField,
+                selectFieldElem
             }
         }
     }

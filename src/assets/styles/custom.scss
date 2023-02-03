@@ -37,7 +37,8 @@
 // -------------------------- OTHER MIXINS
 
 // ---------------------------------- VARS
-    $main-flatdrop: #2e73b380;
+    $main-wrapper: rgba(7, 28, 61, 0.6);
+    $main-flatdrop: #4680b6;
     $main-red: #910a0a;
     $main-white: #fdfdfd;
     $main-color: #275179;
@@ -107,8 +108,23 @@
   .warning-text {
     @include flexRow( flex-stsrt, flex-stsrt ); 
     color: $main-red;
+    margin-top: 4px;
     height: 20px;
     width: 100%;
     @include font ( 10px, normal );
+  }
+
+  .head-text {
+    @include font( 16px, normal );
+    height: 20px;
+    width: calc( 100% + 20px );
+    margin-bottom: 20px;
+    color: $main-color;
+
+    @media screen and ( max-width: 1440px ) {
+        height: 15%;
+        margin-bottom: 10px;
+    }
+
   }
 // ---------------------------------- CLASS

@@ -3,7 +3,9 @@
         <table-head-cmp :tableHeaderData="tableHeaderData"
             :headerControlPanel="headerControlPanel"
             @items-width="itemsWidth"
-            @input-handler="inputHandler" />
+            @input-handler="inputHandler"
+            @click-handler="clickHandler"
+            @emit-select-value="emitSelectValue" />
             
         <table-body-cmp :tableBodyData="tableData"
             :itemsWidth="bodyItemsWidth"
@@ -30,9 +32,10 @@ import TableBodyCmp from './TableBodyCmp.vue';
         
         setup( props: any, { emit }: any ) {
 
-            emits: [ 'input-handler', 'show-table-item' ]
+            emits: [ 'input-handler', 'click-handler', 'show-table-item', 'emit-select-value' ]
 
             const bodyItemsWidth = ref<number>( 0 )
+
             const itemsWidth = ( data: number ) => {
                 bodyItemsWidth.value = data
             }
@@ -41,15 +44,25 @@ import TableBodyCmp from './TableBodyCmp.vue';
                 emit( 'show-table-item', itemData )
             }
 
+            const clickHandler = (): void => {
+                emit( 'click-handler' )
+            }
+
             const inputHandler = ( data: string): void => {
                 emit( 'input-handler', data )
+            }
+
+            const emitSelectValue = ( data: string ): void => {
+                emit( 'emit-select-value', data  )
             }
 
             return {
                 bodyItemsWidth,
                 itemsWidth,
                 showTableItem,
+                clickHandler,
                 inputHandler,
+                emitSelectValue
             }
         }
     }

@@ -9,25 +9,21 @@
   
 <script lang="ts">
 import TableGroupCmp from '/src/components/tables/TableGroupCmp.vue';
-import { tableWarehouseData, tableWarehouseHeaderData } from '@/assets/data/data'
+
+import 
+    { 
+        tableWarehouseData, 
+        tableWarehouseHeaderData, 
+        headerControlPanelWarehouse 
+    } from '@/assets/data/data'
 
 export default {
+
     components: {
         TableGroupCmp
     },
 
     setup() {
-
-        const headerControlPanelWarehouse: object = {
-            cpAddButtonName: 'Добавить запчасть',
-            cpSearchPlaceholder: 'Найти запчасть',
-            cpOptionsData: [
-                'Все',
-                'Дисплей',
-                'Аккумулятор',
-                'Шлейф'
-            ]
-        }
 
         const inputHandler = ( text: string ): void => {
             console.log( 'inputHandler : ' + `${ text }` );

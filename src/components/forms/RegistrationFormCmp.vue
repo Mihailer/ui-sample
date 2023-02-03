@@ -32,18 +32,17 @@ import ButtonCmp from '../ui/ButtonCmp.vue';
             ButtonCmp
         },
 
-        setup( props, { emit }: any ) {
+        setup( props: any, { emit }: any ) {
 
             emits: [ 'to-login' ]
 
-            const warningMessage = ref( '* Поле не должно быть пустым' )
+            const warningMessage = ref<string>( '* Поле не должно быть пустым' )
 
             const registration = (): void => {
                 console.log( 'Registration run' )
             }
 
             const toLogin = (): void => {
-                console.log( );
                 emit( 'to-login', true )
                 
             }

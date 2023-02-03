@@ -1,38 +1,36 @@
 <template>
+    <modal-wrapper-cmp v-if="addNewOrder" />
     <table-group-cmp 
         :headerControlPanel="headerControlPanelService"
         :tableHeaderData="tableHeaderData" 
         :tableData="tableData"
             @input-handler="inputHandler"
-            @show-table-item="showTableItem" />
+            @show-table-item="showTableItem"
+            @click-handler="clickHandler"
+            @emit-select-value="emitSelectValue" />
 </template>
   
 <script lang="ts">
+import { ref } from 'vue'
 import TableGroupCmp from '/src/components/tables/TableGroupCmp.vue';
-import { tableData, tableHeaderData } from '@/assets/data/data'
+import ModalWrapperCmp from '@/components/modals/ModalWrapperCmp.vue';
+import
+    { 
+        tableData, 
+        tableHeaderData, 
+        headerControlPanelService 
+    } from '@/assets/data/data'
 
 export default {
     components: {
-        TableGroupCmp
+        TableGroupCmp,
+        ModalWrapperCmp
     },
 
     setup() {
-   
-        const headerControlPanelService: object = {
-            cpAddButtonName: 'Новый заказ',
-            cpSearchPlaceholder: 'Найти заказ',
-            cpOptionsData: [
-                'Все заказы',
-                'Новый',
-                'Диагностика',
-                'Ждет запчасть',
-                'В работе',
-                'Ждет клиента',
-                'Оплачен',
-                'Закрыт'
-            ]
-        }
 
+        const addNewOrder = ref( true )
+   
         const inputHandler = ( text: string ): void => {
             console.log( 'inputHandler : ' + `${ text }` );
         }
@@ -45,13 +43,19 @@ export default {
             console.log( data );
         }
 
+        const emitSelectValue = ( data: string ): void => {
+            console.log( data );
+        }
+
         return {
+            addNewOrder,
             tableHeaderData,
             tableData,
             headerControlPanelService,
             inputHandler,
             clickHandler,
             showTableItem,
+            emitSelectValue
         }
     }
 }

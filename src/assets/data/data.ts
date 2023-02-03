@@ -8,8 +8,6 @@ export const tabs: object = {
     '3': 'Аналитика',
 }
 
-
-
 export const selectFieldItem: Array<T> = [
     'Вариант 1',
     'Вариант 2',
@@ -17,7 +15,7 @@ export const selectFieldItem: Array<T> = [
     'Вариант 4'
 ]
 
-export const ststusFieldItem: Array<T> = [
+export const statusFieldItem: Array<T> = [
   'Все заказы',
   'Новый',
   'Диагностика',
@@ -416,3 +414,44 @@ export const tableWarehouseData: Array<O> = [
 ].reverse()
 
 
+export const headerControlPanelService: object = {
+    cpAddButtonName: 'Новый заказ',
+    cpSearchPlaceholder: 'Найти заказ',
+    cpOptionsData: [
+        'Все заказы',
+        'Новый',
+        'Диагностика',
+        'Ждет запчасть',
+        'В работе',
+        'Ждет клиента',
+        'Оплачен',
+        'Закрыт'
+    ]
+}
+
+export const headerControlPanelWarehouse: object = {
+    cpAddButtonName: 'Добавить запчасть',
+    cpSearchPlaceholder: 'Найти запчасть',
+    cpOptionsData: [
+        'Все',
+        'Дисплей',
+        'Аккумулятор',
+        'Шлейф'
+    ]
+}
+
+export const serviceNewOrderData = {
+    sectionTextClient: 'Клиент',
+    newOrderClientData: [
+        '* Имя',
+        '* Номер телефона',
+        '* Причина обращения'
+    ],
+    sectionTextDevice: 'Устройство',
+    newOrderDeviceData: [
+        '* Тип устройства',
+        '* Производитель',
+        '* Модель',
+        'Комментарий'
+    ]
+}

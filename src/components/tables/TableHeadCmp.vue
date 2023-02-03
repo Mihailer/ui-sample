@@ -1,7 +1,9 @@
 <template>
     <div class="table-head-controls">
         <control-panel-cmp :headerControlPanel="headerControlPanel" 
-            @input-handler="inputHandler" />
+            @input-handler="inputHandler"
+            @click-handler="clickHandler"
+            @emit-select-value="emitSelectValue" />
     </div>
     <div class="table-head">
         <span class="table-head-item" 
@@ -21,9 +23,10 @@ import ControlPanelCmp from '../controls/ControlPanelCmp.vue'
             tableHeaderData: { type: Array, default: () => { return [] } }
         },
 
-        emits: [ 'input-handler', 'items-width' ],
+        emits: [ 'input-handler', 'click-handler', 'items-width', 'emit-select-value' ],
 
         setup( props: any, { emit }: any ) {
+            
             const itemWidth = ref<number>( props.tableHeaderData.length ).value
                 emit( 'items-width', itemWidth )
 
@@ -31,9 +34,19 @@ import ControlPanelCmp from '../controls/ControlPanelCmp.vue'
                 emit( 'input-handler', data )
             }
 
+            const clickHandler = () => {
+                emit( 'click-handler' )
+            }
+
+            const emitSelectValue = ( data: string ): void => {
+                emit( 'emit-select-value', data )
+            }
+
             return {
                 itemWidth,
-                inputHandler
+                inputHandler,
+                clickHandler,
+                emitSelectValue
             }
         },
 

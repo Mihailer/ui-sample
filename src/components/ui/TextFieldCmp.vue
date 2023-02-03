@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts"> 
-import { ref } from 'vue'
     export default {
         props: {
             textData: { type: String, default: 'Текстовое поле'}

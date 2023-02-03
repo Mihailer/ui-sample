@@ -11,7 +11,8 @@
             </div>
             <div class="status backdrop">
                 <select-cmp :selectName="headerControlPanel.cpOptionsData[ 0 ]" 
-                    :selectFieldItem="headerControlPanel.cpOptionsData" />
+                    :selectFieldItem="headerControlPanel.cpOptionsData"
+                    @emit-select-value="emitSelectValue" />
             </div>
         </div>
     </div>
@@ -21,7 +22,7 @@
 import ButtonCmp from '../ui/ButtonCmp.vue';
 import InputCmp from '../ui/InputCmp.vue';
 import SelectCmp from '../ui/SelectCmp.vue'
-import { ststusFieldItem } from '@/assets/data/data'
+import { statusFieldItem } from '@/assets/data/data'
 
     export default {
         props: {
@@ -34,23 +35,28 @@ import { ststusFieldItem } from '@/assets/data/data'
             SelectCmp
         },
         
-        emits: [ 'input-handler' ],
+        emits: [ 'input-handler', 'click-handler', 'emit-select-value' ],
 
         setup( props: any, { emit }: any ) {
 
-            const clickHandler = () => {
-                console.log( 'Новый заказ' );
-                
+            const clickHandler = (): void => {
+                // console.log( 'Новый заказ' );
+                emit( 'click-handler', 'emit-select-value' )
             }
 
             const inputHandler = ( data: string ): void => {
                 emit( 'input-handler', data )
             }
 
+            const emitSelectValue = ( data: string ): void => {
+                emit( 'emit-select-value', data )
+            }
+
             return {
-                ststusFieldItem,
+                statusFieldItem,
                 clickHandler,
                 inputHandler,
+                emitSelectValue
             }
         }
     }

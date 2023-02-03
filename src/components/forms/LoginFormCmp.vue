@@ -30,9 +30,9 @@ import ButtonCmp from '../ui/ButtonCmp.vue';
             ButtonCmp
         },
 
-        setup( props, { emit }: any ) {
+        setup( props: any, { emit }: any ) {
 
-            const warningMessage = ref( '* Поле не должно быть пустым' )
+            const warningMessage = ref<string>( '* Поле не должно быть пустым' )
 
             emits: [ 'to-registration' ]
 
