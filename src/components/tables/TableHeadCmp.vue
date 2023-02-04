@@ -1,6 +1,7 @@
 <template>
     <div class="table-head-controls">
-        <control-panel-cmp :headerControlPanel="headerControlPanel" 
+        <control-panel-cmp v-if="showControls"
+            :headerControlPanel="headerControlPanel" 
             @input-handler="inputHandler"
             @click-handler="clickHandler"
             @emit-select-value="emitSelectValue" />
@@ -19,6 +20,7 @@ import { ref } from 'vue'
 import ControlPanelCmp from '../controls/ControlPanelCmp.vue'
     export default {
         props: {
+            showControls: { type: Boolean, default: true },
             headerControlPanel: { type: Object, default: () => { return {} } },
             tableHeaderData: { type: Array, default: () => { return [] } }
         },

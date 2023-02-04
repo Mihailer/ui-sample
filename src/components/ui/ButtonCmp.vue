@@ -30,13 +30,9 @@ export default {
         
         const load = (): void => {
             emit( 'click-handler' )
-            btnNameText.value = ''
-            loading.value = true  
+            // btnNameText.value = ''
+            // loading.value = true  
 
-            setTimeout( (): void => {
-                loading.value = false 
-                btnNameText.value = props.btnName
-            }, 3000 )
         }
 
         return {

@@ -50,7 +50,7 @@ import SelectCmp from '../ui/SelectCmp.vue'
 .table-body-wrapper {
     @include flexCol( flex-start, center ); 
     overflow-y: scroll;
-    height: calc( 100% - 100px );
+    height: 100%;
     width: 100%;
 }
 

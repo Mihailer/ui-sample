@@ -1,45 +1,78 @@
 <template>
     <div class="service-new-order-modal">
-    
-        <form class="service-new-order-modal-input-section">
-            <div class="service-new-order-modal-input-section-form-client">
-                <span class="head-text">{{ serviceNewOrderData.sectionTextClient }}</span>
-                <input-cmp v-for="( fieldName, fieldNameIndex ) in serviceNewOrderData.newOrderClientData"
-                    :key="fieldNameIndex"
-                    :placeholder="fieldName" />
-                <span class="warning-text">{{ warningText }}</span>
-            </div>
-            <div class="service-new-order-modal-input-section-form-device">
-                <span class="head-text">{{ serviceNewOrderData.sectionTextDevice }}</span>
-                <input-cmp v-for="( fieldName, fieldNameIndex ) in serviceNewOrderData.newOrderDeviceData"
-                    :key="fieldNameIndex" :placeholder="fieldName" />
-                <span class="warning-text">{{ warningText }}</span>
-            </div>
-        </form>
+        <new-order-form-cmp />
 
         <div class="service-new-order-modal-services-section">
+            <div class="service-new-order-modal-services-section-add-service">
+                <table-group-cmp :showControls="false"
+                    tableHeight="42vh"
+                    :headerControlPanel="headerControlPanelService"
+                    :tableHeaderData="tableServiceItemsData" 
+                    :tableData="tableServiceData"
+                        @input-handler="inputHandler"
+                        @show-table-item="showTableItem"
+                        @click-handler="clickHandler"
+                        @emit-select-value="emitSelectValue" />
+                        
+            </div>
+            <div class="service-new-order-modal-services-section-add-button">
+                <button-cmp btnName="Добавить услугу" />
+            </div>
             
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
+// import { ref } from 'vue'
+import NewOrderFormCmp from '../forms/NewOrderFormCmp.vue';
 import InputCmp from '../ui/InputCmp.vue';
-import { serviceNewOrderData } from '@/assets/data/data'
+import ButtonCmp from '../ui/ButtonCmp.vue';
+import TableGroupCmp from '../tables/TableGroupCmp.vue';
+
+import
+    { 
+        tableServiceData, 
+        tableServiceItemsData, 
+        headerControlPanelService 
+    } from '@/assets/data/data'
 
     export default {
 
         components: {
-            InputCmp
+            NewOrderFormCmp,
+            InputCmp,
+            ButtonCmp,
+            TableGroupCmp
         },
         
         setup() {
-            const warningText = ref( 'Заполните все поля отмеченные *' )
+
+            const inputHandler = ( text: string ): void => {
+            console.log( 'inputHandler : ' + `${ text }` );
+        }
+
+        const clickHandler = (): void => {
+            console.log( 'clickHandler newOrderModal' );
+        }
+
+        const showTableItem = ( data: object ): void  => {
+            console.log( data );
+        }
+
+        const emitSelectValue = ( data: string ): void => {
+            console.log( data );
+        }
 
             return {
-                warningText,
-                serviceNewOrderData
+                tableServiceItemsData,
+                tableServiceData,
+                headerControlPanelService,
+
+                inputHandler,
+                clickHandler,
+                showTableItem,
+                emitSelectValue
             }
         }
     }
@@ -63,62 +96,31 @@ import { serviceNewOrderData } from '@/assets/data/data'
         width: 75%;
     }
 
-    &-input-section {
+    &-services-section {
         @include flexCol( flex-start, center );
         height: 95%;
         min-width: 300px;
-        width: 20%;
-        margin: 15px 0px 15px 15px;
-        border: $main-border;
-        border-radius: $main-border-radius;
-        outline: none;
-        box-shadow: $main-shadow;
-        background-color: $main-white;
-
-        &-form-client {
-            @include flexCol( space-between, center );
-            height: 35%;
-            width: 80%;
-            margin: 20px 0px 0px 0px;
-            padding: 10px 20px 0px 20px;
-            outline: none;
-            background-color: $main-white;
-
-            @media screen and ( max-width: 1440px ) {
-                height: 40%;
-                margin: 10px 0px 0px 0px;
-            }
-
-        }
-
-        &-form-device {
-            @include flexCol( space-between, center );
-            height: 45%;
-            width: 80%;
-            margin: 20px 0px 0px 0px;
-            padding: 10px 20px 0px 20px;
-            outline: none;
-            // box-shadow: $main-shadow;
-            background-color: $main-white;
-
-            @media screen and ( max-width: 1440px ) {
-                margin: 10px 0px 0px 0px;
-                height: 50%;
-            }
-
-        }
-    }
-
-    &-services-section {
-        height: 95%;
-        min-width: 300px;
         width: 70%;
-        margin: 15px 15px 15px 15px;
-        border: $main-border;
-        border-radius: $main-border-radius;
-        outline: none;
-        box-shadow: $main-shadow;
+        margin: 0px 10px 4px 15px;
+        // border: $main-border;
+        // border-radius: $main-border-radius;
         background-color: $main-white;
+
+        &-add-service {
+            @include flexCol( space-between, center );
+            max-height: 50%;
+            width: 100%;
+            margin: 0px 0px 15px 0px;
+            outline: none;
+            background-color: $main-white;
+        }
+
+        &-add-button {
+            @include flexRow( flex-end, center );
+            height: 40px;
+            width: 100%;
+            margin: 0px 5px 0px 0px;
+        }
     }
 }
 </style>

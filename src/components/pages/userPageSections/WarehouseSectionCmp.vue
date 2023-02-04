@@ -1,5 +1,5 @@
 <template>
-    <table-group-cmp 
+    <table-group-cmp tableHeight="100vh"
         :headerControlPanel="headerControlPanelWarehouse"
         :tableHeaderData="tableWarehouseHeaderData" 
         :tableData="tableWarehouseData"

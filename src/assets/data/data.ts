@@ -455,3 +455,33 @@ export const serviceNewOrderData = {
         'Комментарий'
     ]
 }
+
+
+export const tableServiceItemsData: Array<T> = [
+    'Услуга',
+    'Стоимость запчастей',
+    'Стоимость работ'
+]
+
+export const tableServiceData: Array<O> = [
+    { 
+        serviceName: 'Замена слухового динамика', 
+        partsCost: 400, 
+        workCost: 1000
+    },
+    { 
+        serviceName: 'Замена дисплейного модуля', 
+        partsCost: 2200, 
+        workCost: 2300
+    },
+    { 
+        serviceName: 'Замена аккумулятора', 
+        partsCost: 950, 
+        workCost: 1150
+    },
+    { 
+        serviceName: 'Замена нижней платы', 
+        partsCost: 600, 
+        workCost: 1800
+    }
+]

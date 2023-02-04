@@ -1,6 +1,7 @@
 <template>
     <div class="table-group">
         <table-head-cmp :tableHeaderData="tableHeaderData"
+            :showControls="showControls"
             :headerControlPanel="headerControlPanel"
             @items-width="itemsWidth"
             @input-handler="inputHandler"
@@ -25,6 +26,8 @@ import TableBodyCmp from './TableBodyCmp.vue';
         },  
 
         props: {
+            tableHeight: { type: String, default: '100%' },
+            showControls: { type: Boolean, default: true },
             headerControlPanel: { type: Object, default: () => { return {} } },
             tableHeaderData: { type: Array, default: () => { return [] } },
             tableData: { type: Array, default: () => { return [] } }
@@ -73,7 +76,7 @@ import TableBodyCmp from './TableBodyCmp.vue';
 
 .table-group {
     @include flexCol( flex-start, center );
-    height: calc( 100vh - 100px );
+    height: calc( v-bind( tableHeight ) - 100px );
     width: 98%;
     margin: 0px 0px;
     border: $main-border;
@@ -81,5 +84,9 @@ import TableBodyCmp from './TableBodyCmp.vue';
     color: $main-color;
     background-color: $main-white;
     box-shadow: $main-shadow;
+
+    @media screen and ( max-width: 1440px ) {
+        height: calc( v-bind( tableHeight ) - 80px );
+    }
 }
 </style>

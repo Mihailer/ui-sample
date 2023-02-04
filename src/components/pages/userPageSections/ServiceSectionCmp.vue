@@ -1,6 +1,7 @@
 <template>
     <modal-wrapper-cmp v-if="addNewOrder" />
-    <table-group-cmp 
+    <table-group-cmp :showControls="true"
+        :tableHeight="'100vh'"
         :headerControlPanel="headerControlPanelService"
         :tableHeaderData="tableHeaderData" 
         :tableData="tableData"
@@ -29,14 +30,14 @@ export default {
 
     setup() {
 
-        const addNewOrder = ref( true )
+        const addNewOrder = ref( false )
    
         const inputHandler = ( text: string ): void => {
             console.log( 'inputHandler : ' + `${ text }` );
         }
 
         const clickHandler = (): void => {
-            console.log( 'clickHandler');
+            addNewOrder.value = true
         }
 
         const showTableItem = ( data: object ): void  => {
