@@ -62,10 +62,10 @@ import { ref, computed } from 'vue'
 
 .select-cmp {
     @include flexRow( flex-start, center );
-    @include font( 13px, normal );
+    @include font( 12px, normal );
     height: 30px;
     min-width: 100px;
-    width: calc( 10px * v-bind( selectSize ));
+    width: calc( 15px * v-bind( selectSize ));
     padding: 0px 10px;
     margin: 0px 4px;
     border: $main-border;
@@ -87,10 +87,8 @@ import { ref, computed } from 'vue'
     &-options {
         z-index: 20;
         @include flexCol( flex-start, flex-start );
-        @include font( 13px, normal );
-        height: auto;
         min-width: 120px;
-        width: calc( 10px * v-bind( selectSize ) + 20px );
+        width: calc( 15px * v-bind( selectSize ) + 20px );
         margin: 2px 4px;
         border: $main-border;
         border-radius: $main-border-radius;
@@ -101,7 +99,7 @@ import { ref, computed } from 'vue'
 
         &-field {
             @include flexRow( flex-start, center );
-            @include font( 13px, normal );
+            @include font( 10px, normal );
             height: 30px;
             width: calc( 100% - 20px );
             padding: 0px 10px;

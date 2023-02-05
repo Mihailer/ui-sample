@@ -10,12 +10,15 @@
         <span class="table-head-item" 
             v-for="( headText, headTextIdx ) in tableHeaderData" 
             :key="headTextIdx">
-            {{ headText }}
+            {{ !loading ? headText : '' }}
+            <spinner-cmp v-if="loading" />
         </span>
     </div>
 </template>
 
 <script lang="ts">
+import SpinnerCmp from '../ui/SpinnerCmp.vue'
+
 import { ref } from 'vue'
 import ControlPanelCmp from '../controls/ControlPanelCmp.vue'
     export default {
@@ -28,6 +31,8 @@ import ControlPanelCmp from '../controls/ControlPanelCmp.vue'
         emits: [ 'input-handler', 'click-handler', 'items-width', 'emit-select-value' ],
 
         setup( props: any, { emit }: any ) {
+
+            const loading = ref( false )
             
             const itemWidth = ref<number>( props.tableHeaderData.length ).value
                 emit( 'items-width', itemWidth )
@@ -45,6 +50,7 @@ import ControlPanelCmp from '../controls/ControlPanelCmp.vue'
             }
 
             return {
+                loading,
                 itemWidth,
                 inputHandler,
                 clickHandler,
@@ -53,7 +59,9 @@ import ControlPanelCmp from '../controls/ControlPanelCmp.vue'
         },
 
         components: {
-            ControlPanelCmp
+            ControlPanelCmp,
+
+            SpinnerCmp
         }
     }
 </script>

@@ -116,7 +116,7 @@
 
   .head-text {
     @include font( 16px, normal );
-    height: 20px;
+    height: 16px;
     width: calc( 100% + 20px );
     margin-bottom: 20px;
     color: $main-color;
@@ -126,5 +126,18 @@
         margin-bottom: 10px;
     }
 
+  }
+
+  .maxWidth {
+    height: 34px;
+    width: 99%;
+  }
+
+  .z10 {
+    z-index: 10;
+  }
+
+  .flex-end {
+    @include flexRow( flex-end, center )
   }
 // ---------------------------------- CLASS

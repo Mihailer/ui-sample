@@ -18,24 +18,57 @@
             <div class="service-new-order-modal-services-section-add-button">
                 <button-cmp btnName="Добавить услугу" />
             </div>
+            <div class="service-new-order-modal-services-section-total-data">
+
+                <div class="service-new-order-modal-services-section-total-data-total-cost">
+                    <span class="service-new-order-modal-services-section-total-data-total-cost-text">
+                        Итоговая стоимость услуг
+                    </span>
+                    <span class="service-new-order-modal-services-section-total-data-total-cost-text">
+                        {{ totalCost( tableServiceData, 'partsCost', 'workCost' ) }} &#8381;
+                    </span>
+                </div>
+
+                <div class="service-new-order-modal-services-section-total-data-buttons">
+                   <div class="backdrop maxWidth">
+                        <select-cmp :selectName="newOrderSelectPayType.name" 
+                            :selectFieldItem="newOrderSelectPayType.type"
+                            @emit-select-value="emitSelectValue" />
+
+                        <select-cmp :selectName="newOrderSelectPayMethod.name" 
+                            :selectFieldItem="newOrderSelectPayMethod.method"
+                            @emit-select-value="emitSelectValue" />
+
+                        <input-cmp placeholder="Сумма оплаты" />
+                   </div>
+                   <div class="backdrop maxWidth flex-end z10">
+                        <button-cmp btnName="Создать заказ" />
+                        <button-cmp btnName="Отмена" />
+                   </div>
+                </div>
+            </div>
             
         </div>
     </div>
 </template>
 
 <script lang="ts">
-// import { ref } from 'vue'
 import NewOrderFormCmp from '../forms/NewOrderFormCmp.vue';
 import InputCmp from '../ui/InputCmp.vue';
 import ButtonCmp from '../ui/ButtonCmp.vue';
 import TableGroupCmp from '../tables/TableGroupCmp.vue';
+
+import SelectCmp from '../ui/SelectCmp.vue';
+import { newOrderSelectPayType, newOrderSelectPayMethod } from '@/assets/data/data'
+import { totalCost } from '../cmpUtils'
 
 import
     { 
         tableServiceData, 
         tableServiceItemsData, 
         headerControlPanelService 
-    } from '@/assets/data/data'
+    } 
+    from '@/assets/data/data'
 
     export default {
 
@@ -43,7 +76,8 @@ import
             NewOrderFormCmp,
             InputCmp,
             ButtonCmp,
-            TableGroupCmp
+            TableGroupCmp,
+            SelectCmp
         },
         
         setup() {
@@ -68,11 +102,13 @@ import
                 tableServiceItemsData,
                 tableServiceData,
                 headerControlPanelService,
-
+                newOrderSelectPayType,
+                newOrderSelectPayMethod,
                 inputHandler,
                 clickHandler,
                 showTableItem,
-                emitSelectValue
+                emitSelectValue,
+                totalCost,
             }
         }
     }
@@ -97,11 +133,10 @@ import
     }
 
     &-services-section {
-        @include flexCol( flex-start, center );
+        @include flexCol( space-between, center );
         height: 95%;
-        min-width: 300px;
         width: 70%;
-        margin: 0px 10px 4px 15px;
+        margin: 0px 15px 4px 15px;
         // border: $main-border;
         // border-radius: $main-border-radius;
         background-color: $main-white;
@@ -119,7 +154,56 @@ import
             @include flexRow( flex-end, center );
             height: 40px;
             width: 100%;
-            margin: 0px 5px 0px 0px;
+            margin: 0px 5px 15px 0px;
+        }
+
+        &-total-data {
+            @include flexCol( space-between, center );
+            height: 45%;
+            min-width: 300px;
+            width: 98%;
+            margin: 0px 15px -3px 15px;
+            border-radius: $main-border-radius;
+            background-color: $main-white;
+
+            &-total-cost {
+                @include flexRow( space-between, center );
+                height: 20%;
+                min-width: 300px;
+                width: 100%;
+                margin: 0px 15px 0px 15px;
+                border: $main-border;
+                border-radius: $main-border-radius;
+                background-color: $main-white;
+
+                &-text {
+                    @include font( 16px, normal ); 
+                    padding: 10px;
+                    color: $main-color;
+                }
+            }
+
+            &-buttons {
+                @include flexCol( space-between, center );
+                height: 70%;
+                min-width: 300px;
+                width: 100%;
+                margin: 0px 15px 0px 15px;
+                border: $main-border;
+                border-radius: $main-border-radius;
+                background-color: $main-white;
+
+                &-pay {
+                    @include flexRow( space-between, center );
+                    height: 20%;
+                    min-width: 300px;
+                    width: 100%;
+                    margin: 5px 15px 0px 15px;
+                    // border: $main-border;
+                    // border-radius: $main-border-radius;
+                    background-color: $main-white;
+                }
+            }
         }
     }
 }

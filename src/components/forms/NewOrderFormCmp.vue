@@ -57,7 +57,7 @@ import { serviceNewOrderData } from '@/assets/data/data'
             @include flexCol( space-between, center );
             height: 35%;
             width: 80%;
-            margin: 20px 0px 0px 0px;
+            margin: 10px 0px 0px 0px;
             padding: 10px 20px 0px 20px;
             outline: none;
             background-color: $main-white;
@@ -66,7 +66,6 @@ import { serviceNewOrderData } from '@/assets/data/data'
                 height: 40%;
                 margin: 10px 0px 0px 0px;
             }
-
         }
 
         &-form-device {

@@ -483,5 +483,35 @@ export const tableServiceData: Array<O> = [
         serviceName: 'Замена нижней платы', 
         partsCost: 600, 
         workCost: 1800
-    }
+    },
+    { 
+        serviceName: 'Замена нижней платы', 
+        partsCost: 600, 
+        workCost: 1800
+    },
+    { 
+        serviceName: 'Замена нижней платы', 
+        partsCost: 600, 
+        workCost: 1800
+    },
+    { 
+        serviceName: 'Замена слухового динамика', 
+        partsCost: 400, 
+        workCost: 1000
+    },
+    { 
+        serviceName: 'Замена дисплейного модуля', 
+        partsCost: 2200, 
+        workCost: 2300
+    },
 ]
+
+export const newOrderSelectPayType = {
+    name: 'Тип оплаты',
+    type: [ 'Наличный расчет', 'Безналичный расчет', 'Предоплата наличными', 'Безналичная предоплата' ]
+}
+
+export const newOrderSelectPayMethod = {
+    name: 'Метод оплаты',
+    method: [ 'Наличные', 'Карта', 'Перевод' ]
+}
